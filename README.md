@@ -1,5 +1,11 @@
 # Hospital Patient Data Analytics & Smart EHR Dashboard
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://smart-ehr-dashboard-5j49yc9ggln4dbf8hghwvf.streamlit.app/)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+> 🌐 **Live Web Application:** [https://smart-ehr-dashboard-5j49yc9ggln4dbf8hghwvf.streamlit.app/](https://smart-ehr-dashboard-5j49yc9ggln4dbf8hghwvf.streamlit.app/)
+
 An educational mini-project for **Data Science for Health and Social Care**. It loads the **Synthea** synthetic
 electronic-health-record CSV export, cleans and validates it with Pandas, and presents the results in an
 interactive, mobile-responsive Streamlit dashboard.
@@ -158,11 +164,14 @@ The application will open in your default browser at `http://localhost:8501`.
 
 ## Deployment Options
 
-### 1. Streamlit Community Cloud (Recommended & 1-Click Free Hosting)
-1. Push this repository to your GitHub account.
+### 1. Streamlit Community Cloud (Live Production App)
+The application is live and hosted at:
+👉 **[https://smart-ehr-dashboard-5j49yc9ggln4dbf8hghwvf.streamlit.app/](https://smart-ehr-dashboard-5j49yc9ggln4dbf8hghwvf.streamlit.app/)**
+
+To deploy your own fork or updates:
+1. Push changes to the `main` branch of your GitHub repository.
 2. Sign in to [share.streamlit.io](https://share.streamlit.io/) with GitHub.
-3. Click **"New app"**, select your repository, branch (`main`), and set **Main file path** to `app.py`.
-4. Click **Deploy!** Streamlit handles WebSockets, persistent memory, and live updates automatically.
+3. Streamlit Community Cloud automatically rebuilds and deploys updates on every push.
 
 ### 2. Vercel / Serverless Deployment
 A `vercel.json` configuration file is included in this repository. 
