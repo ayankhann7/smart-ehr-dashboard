@@ -87,8 +87,8 @@ variants such as `patient_id`, `dob`, `sex` or `encounter_date` also work. **Onl
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd hospital_patient_dashboard
+git clone https://github.com/ayankhann7/smart-ehr-dashboard.git
+cd smart-ehr-dashboard
 
 # Create virtual environment (optional but recommended)
 python -m venv .venv
