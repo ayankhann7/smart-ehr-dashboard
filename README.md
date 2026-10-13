@@ -17,18 +17,66 @@ without ever touching real patient data.
 Load and validate real CSV contents · clean with Pandas · compute descriptive statistics · visualise interactively ·
 filter and explore · look up a synthetic patient · document data quality · test the pipeline automatically.
 
-## Features
-| Page | What it does |
-|---|---|
-| **Executive Dashboard** | Unique patients, encounters, condition records, average age; age, gender, top-condition, encounter-class and time charts; auto-generated descriptive findings |
-| **Patient Analytics** | Age groups, population summary, counts by gender/race/ethnicity, searchable patient-ID list, optional measurements by age group |
-| **Diagnosis Analysis** | Top-N conditions (records vs. unique patients), searchable table, conditions over time, demographic comparison |
-| **Visit Trends** | Daily/monthly/yearly encounters, class distribution and comparison, aggregated table + CSV |
-| **Patient Explorer** | One synthetic patient: encounters, conditions, observations, medications (read-only) |
-| **Data Quality** | Files loaded, original vs. cleaned counts, missing values, duplicates, invalid dates, unmatched IDs, cleaning log, CSV downloads |
+## Dashboard Pages & Module Descriptions
 
-Also: global filters (date range, age, gender, encounter class, condition) with a reset button, a dataset status
-indicator, a setup screen when files are missing, and a clearly labelled **demo dataset** option.
+The application is structured into 6 specialised interactive pages:
+
+### 1. 🏥 Executive Dashboard (`pages/0_Executive_Dashboard.py`)
+Provides hospital administrators, CMOs, and clinical department heads with high-level operational visibility and executive KPIs.
+- **Executive KPIs**: Real-time summary cards displaying Total Unique Patients, Total Encounters, Documented Diagnoses, and Average Patient Age.
+- **Encounter Volume & Mix**: Interactive time-series trends tracking historical patient volumes across Emergency, Ambulatory, Inpatient, Urgent Care, and Wellness visits.
+- **Condition Spotlight**: One-click dropdown selector to instantly spotlight key chronic cohorts (e.g., Diabetes, Hypertension, Asthma) across all top-level metrics.
+- **Demographic Overviews**: High-level age and gender distribution charts.
+- **Automated Narrative Findings**: Natural-language analytical insights generated dynamically to summarise peak utilization years, top visit drivers, and population age patterns.
+
+### 2. 👥 Patient Analytics (`pages/1_Patient_Analytics.py`)
+Detailed demographic segmentation and epidemiological cohort analysis across the entire synthetic patient population.
+- **Age Cohort Distribution**: Granular age brackets (Pediatric, Young Adult, Middle Age, Senior) highlighting demographic distribution.
+- **Diversity & Demographics**: Interactive breakdown of patient population by Gender, Race, and Ethnicity.
+- **Payer & Coverage Analysis**: Distribution of healthcare coverage across insurance payers (Medicare, Medicaid, Dual Eligible, Commercial, Uninsured).
+- **Vitals & Measurements by Cohort**: Cross-sectional analysis of clinical observations (e.g., Blood Pressure, BMI, Glucose) across age categories.
+- **Searchable Patient Registry**: Interactive directory allowing filtering and selection of individual synthetic patients for deep-dive review.
+
+### 3. 🩺 Diagnosis Analysis (`pages/2_Diagnosis_Analysis.py`)
+Comprehensive analysis of disease prevalence, chronic illness burden, and clinical condition trends.
+- **Disease Category Presets**: Instant filter dropdown for major disease categories including Diabetes, Hypertension, Asthma, Mental Health, Viral Infections, and Musculoskeletal disorders.
+- **Prevalence vs. Occurrence**: Compares total diagnostic event counts against unique patient prevalence to differentiate between frequent exacerbations and widespread conditions.
+- **Longitudinal Condition Trends**: Multi-year timeline tracking how diagnosis detection rates evolve over time.
+- **Demographic Breakdown**: Cross-tabulation comparing diagnosis frequency across gender cohorts and age groups.
+- **Diagnosis Explorer**: Fast, searchable table with ICD-10 / SNOMED condition descriptions and frequency metrics.
+
+### 4. 📈 Visit Trends (`pages/3_Visit_Trends.py`)
+Longitudinal utilization patterns and operational workflow analytics for hospital capacity planning.
+- **Temporal Volume Analysis**: Multi-resolution encounter volume trends aggregated by Year, Month, or Day.
+- **Encounter Class Breakdown**: Visualizes the proportion of Emergency department visits, Outpatient encounters, Inpatient admissions, Urgent Care, and Wellness checkups.
+- **Length of Stay (LOS)**: Distribution of visit durations for inpatient stays and emergency admissions.
+- **Data Export**: Clean aggregated visit summary tables with one-click CSV download for custom offline analysis.
+
+### 5. 🔍 Patient Explorer (`pages/4_Patient_Explorer.py`)
+A 360-degree longitudinal synthetic Electronic Health Record (EHR) viewer for individual patient case studies.
+- **Patient Banner**: Key identity card showing synthetic Patient ID, age, birth date, gender, race, vital status, and total lifetime visits.
+- **Longitudinal Clinical Timeline**: Chronological journey mapping every encounter throughout the patient's recorded history.
+- **Detailed Clinical Subsections**:
+  - **Encounters**: Chronological list of visit dates, encounter classes, and reason for admission.
+  - **Conditions**: All documented active and historical diagnoses.
+  - **Medications**: Prescribed drug regimens, dosages, and active treatment windows.
+  - **Vitals & Observations**: Longitudinal tracking of lab measurements (Blood Pressure, BMI, Heart Rate, Cholesterol, Glucose).
+- **Safe & Ethical**: Strictly synthetic data simulation with read-only access ensuring total patient privacy.
+
+### 6. ✅ Data Quality & Management (`pages/5_Data_Quality.py`)
+Data engineering governance, ETL validation, and dynamic dataset file management.
+- **Ingestion & Cleaning Audit**: Compares raw input row counts against clean validated records, tracking removed duplicates and imputed values.
+- **Missingness Matrix**: Column-by-column null value breakdown across all loaded clinical tables.
+- **Referential Integrity Validation**: Identifies orphan records (e.g., encounters or conditions referencing unlisted patient IDs).
+- **Temporal Sanity Checks**: Audits for invalid future dates, inverted encounter start/stop timestamps, or impossible patient ages.
+- **📁 Dataset File Manager**: Allows users to dynamically upload new CSV files, inspect file schemas, and safely delete/replace existing tables directly through the browser with automatic cache invalidation.
+
+---
+
+### Global Features & Navigation
+- **Universal Sidebar Filters**: Date range slider, age bracket multiselect, gender filter, encounter class selector, and condition preset picker that reactively update all charts across all pages.
+- **Responsive Healthcare Theme**: Clean clinical teal-and-blue theme, mobile-optimized cards, and guaranteed zero-overflow horizontal layout.
+- **Accessible & Interactive**: Clickable hospital logo, direct phone/email contact links, and interactive Plotly visualizations with zoom and tooltips.
 
 ## Technology stack
 Python 3.11+ · Streamlit · Pandas · NumPy · Plotly · Pytest. (SQLite is not used: the app has no persistent
