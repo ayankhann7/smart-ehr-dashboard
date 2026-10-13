@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="52" viewBox="0 0 280 52" role="img" aria-label="Smart EHR Patient Data Analytics logo">
+  <defs>
+    <linearGradient id="ehrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0F766E" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <!-- Logo Badge -->
+  <rect x="4" y="6" width="40" height="40" rx="11" fill="url(#ehrGrad)" filter="url(#shadow)"/>
+  <!-- Medical Cross -->
+  <path d="M24 14v24M12 26h24" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Pulse Line Overlay -->
+  <path d="M12 28h5l2.5-5 3.5 10 3-7 2.5 4h5.5" fill="none" stroke="#5EEAD4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Brand Typography -->
+  <text x="56" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#0F172A" letter-spacing="-0.3">Smart EHR</text>
+  <text x="56" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0F766E" letter-spacing="0.5">PATIENT DATA ANALYTICS</text>
+</svg>
