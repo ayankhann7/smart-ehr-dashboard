@@ -246,12 +246,8 @@ def empty_state(message: str = "No records match the selected filters.") -> None
 def footer() -> None:
     footer_html = (
         '<div class="ehr-footer" role="contentinfo">'
-        '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; margin-bottom:0.4rem;">'
-        '<div><strong>Smart EHR Analytics</strong> · © 2026 All rights reserved</div>'
-        '<div>'
-        '<a href="mailto:support@smartehr.local" style="color:#0F766E; text-decoration:none; margin-right:1.2rem; font-weight:600;">✉️ support@smartehr.local</a>'
-        '<a href="tel:+18005553472" style="color:#0F766E; text-decoration:none; font-weight:600;">📞 +1 (800) 555-EHR</a>'
-        '</div>'
+        '<div style="margin-bottom:0.4rem;">'
+        '<strong>Smart EHR Analytics</strong> · © 2026 All rights reserved'
         '</div>'
         f'<div style="color:#94A3B8; font-size:0.75rem;">Educational & analytical use only · synthetic EHR data · {html.escape(DISCLAIMER)}</div>'
         '</div>'

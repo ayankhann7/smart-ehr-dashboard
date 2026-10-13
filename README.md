@@ -82,7 +82,7 @@ Data engineering governance, ETL validation, and dynamic dataset file management
 ### Global Features & Navigation
 - **Universal Sidebar Filters**: Date range slider, age bracket multiselect, gender filter, encounter class selector, and condition preset picker that reactively update all charts across all pages.
 - **Responsive Healthcare Theme**: Clean clinical teal-and-blue theme, mobile-optimized cards, and guaranteed zero-overflow horizontal layout.
-- **Accessible & Interactive**: Clickable hospital logo, direct phone/email contact links, and interactive Plotly visualizations with zoom and tooltips.
+- **Accessible & Interactive**: Clickable hospital logo navigation, and interactive Plotly visualizations with zoom and tooltips.
 
 ## Technology stack
 Python 3.11+ · Streamlit · Pandas · NumPy · Plotly · Pytest. (SQLite is not used: the app has no persistent
