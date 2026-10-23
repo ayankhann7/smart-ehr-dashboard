@@ -83,8 +83,14 @@ def compute_age(birth_date: pd.Series, reference_date, death_date: pd.Series | N
 
 
 def _category(series: pd.Series, mapping: dict, key=lambda s: s.str.lower()) -> pd.Series:
+    raw_titles = series.str.title()
+    if not mapping:
+        return raw_titles.fillna("Unknown").astype("string")
     mapped = key(series).map(mapping)
-    out = mapped.where(mapped.notna(), series.str.title())
+    out = raw_titles.copy()
+    mask = mapped.notna()
+    if mask.any():
+        out[mask] = mapped[mask]
     return out.fillna("Unknown").astype("string")
 
 
