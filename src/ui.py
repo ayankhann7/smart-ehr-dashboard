@@ -502,10 +502,10 @@ def bootstrap(title: str, subtitle: str, use_filters: bool = True, require_recor
     except data_loader.DatasetError as exc:
         setup_screen(str(exc))
         st.stop()
-    except Exception:  # unexpected: keep details in the log, show a plain message
+    except Exception as exc:  # unexpected: show details and log
         logger.exception("Unexpected error while loading the dataset")
-        st.error("The dataset could not be processed. Check that the CSV files are valid Synthea exports "
-                 "(see the Data Quality page and README). Details were written to the application log.")
+        st.error(f"The dataset could not be processed: {exc}")
+        st.exception(exc)
         st.stop()
     if cleaned.tables["patients"].empty:
         st.error("The dataset contains no valid patient records after cleaning. See the Data Quality page.")
